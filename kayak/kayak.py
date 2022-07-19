@@ -6,7 +6,8 @@ with open('c:\\users\\thoma\\kayak_api_key.txt', 'r') as f:
 lat = "39.4143"
 # longitude for Frederick MD
 lon = "77.4105"
-# the URL that will be used to get the data
+# the URL that will be used to get the data. 2.5 spcifies less data will be retrieved
+# this is in keeping with the free version that is being used
 url = "https://api.openweathermap.org/data/2.5/onecall?lat={}&lon={}&appid={}".format(lat,lon,key)
 # prints the filled in URL for troubleshooting
 print(url)
