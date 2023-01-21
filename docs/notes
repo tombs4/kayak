@@ -1,1 +1,67 @@
 Will be using API calls detailed in this doc - https://openweathermap.org/api/one-call-3
+
+api keys go into env variables with serverless applications
+
+configuration completely separate from the code that runs
+
+don't use setup.py, use pyproject.toml. This gets packaging for a whl file for install with pip
+
+virtual env, adds in an entry point called deactivate
+    there's a scripts folder
+    and there's a python
+    .venv\kayak\lib\site-packages
+    can delete the .venv folder to start over with the dependencies
+
+python -m venv <target_directory>
+<target_directory>\.venv\scripts\activate.ps1
+
+conventions
+    1. add into the project and use .gitignore to ignore it
+    2. somewhere that doesn't make sense
+    3. put that at the root of your profile: $home\.venv
+
+There's a python.exe in the virtual environment that's different to the one in the virtual environment
+
+Abstract the config for ease of testing
+
+class variables vs instance (bound) variables
+    class variables = 
+        _foo - don't mess with this
+        __foo__ - probably don't change this
+
+__init__.py makes it the package directory
+
+variables are loosely typed by inference 
+
+type hints can be used to coerce people to use the proper setup
+
+blank new line at the end of the 
+
+implicit line continuation inside of parens
+
+keep it close to 80 charaters to a line
+
+use f-strings instead of format 
+
+python -m pip -r .\requirements.txt # doing this in a virtual environment will get the 
+python -m pip install requests
+
+definitely want tests and logging for production environments
+
+tracing vs logging
+
+writing to syslog
+
+Things that I want logging for
+    fragile
+    expensive (dollars or compute)
+    requests and responses get logged
+    redact the API keys (this will be org specific)
+
+os.environ is a list of all the environment variable
+
+For testing use mocking. This is the process of providing a specific response instead of calling the APIs. These are called test cases.
+
+Separate the function that fetches data from the API, the function that cleans the data, and the function that uses the data.
+
+pytest is really useful for testing 
